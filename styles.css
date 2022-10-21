@@ -1,0 +1,14 @@
+#sketchpad {
+  width: 352px;
+  height: 352px;
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.gridBlocks {
+  width: 20px;
+  height: 20px;
+  display: flex;
+  background-color: red;
+  border: solid black 1px;
+}
