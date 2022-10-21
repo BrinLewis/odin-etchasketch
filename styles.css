@@ -12,7 +12,7 @@ body {
   flex-wrap: wrap;
 }
 
-.gridBlocks {
+.gridBoxes {
   background-color: white;
   border: solid black 1px;
   box-sizing: border-box;

@@ -1,38 +1,42 @@
 sketchpad = document.querySelector("#sketchpad");
 
-let blocksPerRow = 16;
+let BoxesPerRow = 16;
 
-let numOfBlocks = blocksPerRow * blocksPerRow;
+let numOfBoxes = BoxesPerRow * BoxesPerRow;
 
-for (let i = 0; i < numOfBlocks; i++) {
+for (let i = 0; i < numOfBoxes; i++) {
   const gridDivs = document.createElement("div");
   sketchpad.appendChild(gridDivs);
-  gridDivs.setAttribute("id", "gridBlock-" + (i + 1));
-  gridDivs.classList.add("gridBlocks");
+  gridDivs.setAttribute("id", "gridBox-" + (i + 1));
+  gridDivs.classList.add("gridBoxes");
 };
 
-const allGridBlocks = document.querySelectorAll(".gridBlocks");
+const allGridBoxes = document.querySelectorAll(".gridBoxes");
 
 let isMouseDown = false;
 
-sketchpad.addEventListener("mousedown", function (event) {
+window.addEventListener("mousedown", function (event) {
   isMouseDown = true;
 });
 
-sketchpad.addEventListener("mouseup", function (event) {
+window.addEventListener("mouseup", function (event) {
   isMouseDown = false;
 });
 
-allGridBlocks.forEach((gridBlock) => {
-  gridBlock.addEventListener("mousemove", () => {
+allGridBoxes.forEach((gridBox) => {
+  gridBox.addEventListener("mousemove", () => {
     if (isMouseDown) {
-      gridBlock.style.backgroundColor = "black";
+      gridBox.style.backgroundColor = "black";
     }
   });
+
+  gridBox.addEventListener("click", () => {
+    gridBox.style.backgroundColor = "black";
+  })
 });
 
-for (let i = 0; i < numOfBlocks; i++) {
-  let gridBlock = document.querySelector(`#gridBlock-${i + 1}`)
-  gridBlock.setAttribute("style", `width: ${500 / blocksPerRow}px; 
-    height: ${500 / blocksPerRow}px`); // 500 = total width(px) of the sketchpad.
+for (let i = 0; i < numOfBoxes; i++) {
+  let gridBox = document.querySelector(`#gridBox-${i + 1}`)
+  gridBox.setAttribute("style", `width: ${500 / BoxesPerRow}px; 
+    height: ${500 / BoxesPerRow}px`); // 500 = total width(px) of the sketchpad.
 };
