@@ -13,9 +13,21 @@ for (let i = 0; i < numOfBlocks; i++) {
 
 const allGridBlocks = document.querySelectorAll(".gridBlocks");
 
+let isMouseDown = false;
+
+sketchpad.addEventListener("mousedown", function (event) {
+  isMouseDown = true;
+});
+
+sketchpad.addEventListener("mouseup", function (event) {
+  isMouseDown = false;
+});
+
 allGridBlocks.forEach((gridBlock) => {
-  gridBlock.addEventListener("mouseover", () => {
-    gridBlock.style.backgroundColor = "black";
+  gridBlock.addEventListener("mousemove", () => {
+    if (isMouseDown) {
+      gridBlock.style.backgroundColor = "black";
+    }
   });
 });
 
