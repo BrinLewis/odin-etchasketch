@@ -46,3 +46,22 @@ for (let i = 0; i < numOfBoxes; i++) {
     height: ${sketchpadSize / BoxesPerRow}px`);
 };
 // Sets the size of each box to fit perfectly within the sketchpad
+
+const btnContainer = document.querySelector("#btnContainer");
+btnContainer.setAttribute("style", `width: ${sketchpadSize}px;`);
+
+const gridBtn = document.querySelector("#gridBtn");
+const resetBtn = document.querySelector("#resetBtn");
+
+gridBtn.addEventListener("click", () => {
+  let newGridSize = parseInt(prompt("What size grid would you like? Max: 80"));
+
+  if(newGridSize === isNaN) {
+    return alert("That is not a valid number");
+  } else if (newGridSize > 80) {
+    return alert("Your number was above the specified amount");
+  } else if (newGridSize < 1) {
+    return alert("How can a grid have less than one square in it?")
+  }
+  
+});

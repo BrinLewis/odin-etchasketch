@@ -1,8 +1,37 @@
 body {
   height: 100vh;
   display: flex;
+  flex-direction: column;
   justify-content: center;
   align-items: center;
+}
+
+#btnContainer {
+  display: flex;
+  justify-content: center;
+  gap: 40px;
+  padding-bottom: 20px;
+}
+
+.btns {
+  width: 200px;
+  font-size: 20px;
+  font-family: Roboto, serif, arial;
+  background-color: white;
+  color: black;
+  border: 3px solid black;
+  border-radius: 5px;
+  padding: 5px;
+}
+
+.btns:hover {
+  background-color: black;
+  color: white;
+  cursor: pointer;
+}
+
+.btns:active {
+  transform: scale(1.05);
 }
 
 #sketchpad {
