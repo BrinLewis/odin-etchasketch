@@ -54,7 +54,7 @@ const btnContainer = document.querySelector("#btnContainer");
 btnContainer.setAttribute("style", `width: ${sketchpadSize}px;`);
 
 const gridBtn = document.querySelector("#gridBtn");
-const resetBtn = document.querySelector("#resetBtn");
+const clearBtn = document.querySelector("#clearBtn");
 
 gridBtn.addEventListener("click", () => {
   let newGridSize = parseInt(prompt("What size grid would you like? Max: 50"));
@@ -74,7 +74,7 @@ gridBtn.addEventListener("click", () => {
 
 });
 
-resetBtn.addEventListener("click", () => {
+clearBtn.addEventListener("click", () => {
   gridBoxes = document.querySelectorAll(".gridBoxes")
   gridBoxes.forEach((gridBox) => {
     gridBox.style.backgroundColor = "white";
