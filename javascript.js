@@ -35,8 +35,12 @@ allGridBoxes.forEach((gridBox) => {
   })
 });
 
+let sketchpadSize = 600;
+
+sketchpad.setAttribute("style", `width: ${sketchpadSize}px; height: ${sketchpadSize}px;`)
+
 for (let i = 0; i < numOfBoxes; i++) {
   let gridBox = document.querySelector(`#gridBox-${i + 1}`)
-  gridBox.setAttribute("style", `width: ${500 / BoxesPerRow}px; 
-    height: ${500 / BoxesPerRow}px`); // 500 = total width(px) of the sketchpad.
+  gridBox.setAttribute("style", `width: ${sketchpadSize / BoxesPerRow}px; 
+    height: ${sketchpadSize / BoxesPerRow}px`); // 500 = total width(px) of the sketchpad.
 };
