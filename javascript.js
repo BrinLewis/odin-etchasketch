@@ -56,7 +56,7 @@ const resetBtn = document.querySelector("#resetBtn");
 gridBtn.addEventListener("click", () => {
   let newGridSize = parseInt(prompt("What size grid would you like? Max: 80"));
 
-  if(newGridSize === isNaN) {
+  if(isNaN(newGridSize)) {
     return alert("That is not a valid number");
   } else if (newGridSize > 80) {
     return alert("Your number was above the specified amount");
