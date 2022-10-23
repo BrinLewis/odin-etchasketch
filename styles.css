@@ -1,3 +1,7 @@
+*{
+  user-select: none;
+}
+
 body {
   background-color: rgb(202, 255, 237);
   height: 100vh;
