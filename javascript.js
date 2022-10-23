@@ -29,27 +29,25 @@ function createBoxes(numOfBoxes) {
   }
 };
 
-createBoxes(numOfBoxes);
-
-const allGridDivs = document.querySelectorAll(".gridBoxes");
+createBoxes(numOfBoxes); //runs function so that page loads with default grid
 
 let isMouseDown = false;
-
 window.addEventListener("mousedown", function (event) {
   isMouseDown = true;
 });
-
 window.addEventListener("mouseup", function (event) {
   isMouseDown = false;
 });
 //isMouseDown makes it so that you can only draw on the sketchpad while the mouse is held down.
 
-function clearGrid() {
-  gridBoxes = document.querySelectorAll(".gridBoxes")
-  gridBoxes.forEach(gridBox => gridBox.remove())
+let gridBoxes = document.querySelectorAll(".gridBoxes");
+
+function removeGridDivs() {
+  for (let i = 0; i < numOfBoxes; i++) {
+    sketchpad.removeChild(sketchpad.lastChild)
+  }
 }
 
-let gridBoxes = document.querySelectorAll(".gridBoxes")
 const btnContainer = document.querySelector("#btnContainer");
 btnContainer.setAttribute("style", `width: ${sketchpadSize}px;`);
 
@@ -57,7 +55,7 @@ const gridBtn = document.querySelector("#gridBtn");
 const clearBtn = document.querySelector("#clearBtn");
 
 gridBtn.addEventListener("click", () => {
-  let newGridSize = parseInt(prompt("What size grid would you like? Max: 50"));
+  let newGridSize = prompt("What size grid would you like? Max: 50");
 
   if (isNaN(newGridSize)) {
     return alert("That is not a valid number");
@@ -66,7 +64,7 @@ gridBtn.addEventListener("click", () => {
   } else if (newGridSize < 1) {
     return alert("How can a grid have less than one square in it?")
   } else {
-    clearGrid();
+    removeGridDivs();
     BoxesPerRow = newGridSize;
     numOfBoxes = BoxesPerRow * BoxesPerRow;
     createBoxes(numOfBoxes);
@@ -75,8 +73,8 @@ gridBtn.addEventListener("click", () => {
 });
 
 clearBtn.addEventListener("click", () => {
-  gridBoxes = document.querySelectorAll(".gridBoxes")
-  gridBoxes.forEach((gridBox) => {
+  for(let i = 0; i < numOfBoxes; i++) {
+    let gridBox = document.querySelector(`#gridDiv-${i + 1}`);
     gridBox.style.backgroundColor = "white";
-  });
+  }
 });
